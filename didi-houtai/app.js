@@ -85,9 +85,6 @@ app.use("/api/admin/users",checklogin ,userlist);
   next();
 };
 
-app.use("/api", userlist);
-app.use("/api", outlogin);
-app.use("/api", changePwd);
 
 app.use((req, res, next) => {
   console.log(req.session);
@@ -102,6 +99,10 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.use("/api", userlist);
+app.use("/api", outlogin);
+app.use("/api", changePwd);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
